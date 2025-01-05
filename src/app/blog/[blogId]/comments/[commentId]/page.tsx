@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 export default async function CommentDetails({
   params,
 }: {
@@ -5,6 +7,10 @@ export default async function CommentDetails({
 }) {
   const commentId = (await params).commentId;
   const blogId = (await params).blogId;
+
+  if (parseInt(commentId) > 100) {
+    notFound();
+  }
   return (
     <div>
       <h3>
