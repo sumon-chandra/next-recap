@@ -22,5 +22,9 @@ export const navItems = [
     {
         href: "/docs",
         label: "Docs"
+    },
+    {
+        href: "dashboard",
+        label: "Dashboard"
     }
 ]
