@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -11,7 +12,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ClerkProvider>{children}</ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
