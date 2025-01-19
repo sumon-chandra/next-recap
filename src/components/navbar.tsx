@@ -46,12 +46,6 @@ const Navbar = () => {
             {item.label}
           </Link>
         ))}
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
       </nav>
     </header>
   );

@@ -1,8 +1,15 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
-const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+type Props = {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+};
+
+const RootLayout = ({ children, modal }: Readonly<Props>) => {
   return (
     <html lang="en">
       <body className={`antialiased`}>
@@ -12,8 +19,13 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           enableSystem
           disableTransitionOnChange
         >
-          <ClerkProvider>{children}</ClerkProvider>
+          <ClerkProvider>
+            <Navbar />
+            <main className="p-10">{children}</main>
+            <Footer />
+          </ClerkProvider>
         </ThemeProvider>
+        {modal}
       </body>
     </html>
   );
